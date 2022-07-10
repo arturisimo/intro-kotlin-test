@@ -32,6 +32,14 @@ Uso de cliente web con TestRestTemplate
 
 http://127.0.0.1:8080/h2-console
 
+Configuración para H2 con persitencia en un fichero data/testdb.mv.db
+
+    spring.datasource.driver-class-name=org.h2.Driver
+    spring.datasource.url=jdbc:h2:file:./data/testdb
+    spring.datasource.username=sa
+    spring.datasource.password=password
+
+
 **+ info**
 
 [the second episode of Spring Time in Kotlin series](https://www.youtube.com/watch?v=0jWo3o7r-W4) at the official [Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
