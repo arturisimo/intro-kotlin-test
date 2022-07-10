@@ -1,37 +1,37 @@
-# Test de integración con kotlin
+# Test de integración con kotlin. Test Containers
 
-**Mock de servicios web**
+**Acceso a [postgreSQL](https://www.postgresql.org/)**
 
-Spring Boot ([SpringMockK](https://github.com/Ninja-Squad/springmockk)) ofrece herramientas de testing, se integra con diversas librerías y ofrece algunas funcionalidades propias
+Añadir dependencia 
 
-* Gestión de mocks con [MockK](https://mockk.io/) mocking library for Kotlin
-* Mocks del servidor web con MockMvc
-* Tests de acceso a bases de datos
-* Tests de integración
+    implementation("org.postgresql:postgresql:42.2.14")
 
-Se pueden simular peticiones web sin ejecutar el servidor web, existe un cliente Http mock **MockMvc** que se conecta directamente al servidor web mock, Se utilizan **plugins** de JUnit para controlar el ciclo de vida de estos elementos de forma muy sencilla
+Configuración
 
-Mock de servicios La librería de testing de Spring facilita la inyección de dobles de esas dependencias **@MockBean**
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+    spring.datasource.username=postgres
+    spring.datasource.password=root
 
-	@MockkBean
-    private lateinit var service: MessageService
+Docker
+
+    $ docker-compose up -d
+
+**[TestContainers](https://www.testcontainers.org/)
+
+    @Testcontainers
+    class TestContainerTest(
+
+        val container = PostgreSQLContainer<Nothing>(DockerImageName.parse("postgres:13-alpine"))
+                        .apply({
+                            withDatabaseName("db")
+                            withUsername("postgres")
+                            withPassword("password")
+                            withInitScript("sql/schema.sql")
+                        })
 
 
-**Uso de TestRestTemplate**
+**+info**
 
-Uso de cliente web con TestRestTemplate
+[the 5th episode of Spring Time in Kotlin series](https://www.youtube.com/watch?v=0jWo3o7r-W4) at the official [Kotlin YouTube channel](https://www.youtube.com/kotlin)
 
-    val entity: ResponseEntity<String> = template.getForEntity("/hello")
-
-
-**H2**
-
-[h2](https://www.h2database.com/html/main.html) Java SQL database. Para activar esa consola:
-
-    spring.h2.console.enabled=true
-
-http://127.0.0.1:8080/h2-console
-
-**+ info**
-
-[the second episode of Spring Time in Kotlin series](https://www.youtube.com/watch?v=0jWo3o7r-W4) at the official [Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
