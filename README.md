@@ -1,5 +1,11 @@
 # Test de integración con kotlin
 
+**Indice**
+
+* Ejemplo de test con mockeo del servidor web con springmockk + mockk.io: [MockkIntegrationTest](https://github.com/arturisimo/intro-kotlin-test/blob/main/src/test/kotlin/demo/MockkIntegrationTest.kt)
+* Ejemplo de test con cliente TestRestTemplate + acceso a BBDD H2: [IntegrationTest](https://github.com/arturisimo/intro-kotlin-test/blob/main/src/test/kotlin/demo/IntegrationTest.kt)
+* Ejemplo de test con TestContainers + cliente Unirest + acceso a BBDD postgreSQL: [IntegrationTest](https://github.com/arturisimo/intro-kotlin-test/blob/test-container/src/test/kotlin/demo/IntegrationTest.kt)
+
 **Mock de servicios web**
 
 Spring Boot ([SpringMockK](https://github.com/Ninja-Squad/springmockk)) ofrece herramientas de testing, se integra con diversas librerías y ofrece algunas funcionalidades propias
