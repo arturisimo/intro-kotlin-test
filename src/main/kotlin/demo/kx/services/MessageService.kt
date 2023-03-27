@@ -23,4 +23,8 @@ class MessageService(val db: JdbcTemplate) {
         db.update("insert into messages values ( ?, ? )", message.id ?: message.text.uuid(),
             message.text)
     }
+
+    fun deleteAll(){
+        db.update("delete from messages")
+    }
 }
