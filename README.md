@@ -49,3 +49,7 @@ Configuración para H2 con persitencia en un fichero data/testdb.mv.db
 **+ info**
 
 [the second episode of Spring Time in Kotlin series](https://www.youtube.com/watch?v=0jWo3o7r-W4) at the official [Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
+
+**Test de integración con test container**
+
+Ejemplo con postgreSQL: https://github.com/arturisimo/intro-kotlin-test/tree/test-container
